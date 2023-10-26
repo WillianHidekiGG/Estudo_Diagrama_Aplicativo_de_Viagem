@@ -83,3 +83,5 @@ end
         procurarMotorista-->aceitarCorrida
 
 ```
+
+<img src="./img/Diagrama de Serviço de transporte.jpg">
