@@ -39,7 +39,7 @@ subgraph Ações_Passageiro
         concluirCadastro_P & login_P-->enderecoChegada_P
         enderecoChegada_P-->enderecoPartida_P
         enderecoPartida_P-->procurarMotorista
-        aceitarCorrida--nao aceitou-->procurarMotorista
+
 end
 
 
@@ -56,6 +56,7 @@ subgraph Ações_Motorista
     procurarCorridas(Procurar corridas por perto)
     style procurarCorridas fill:#663300,stroke:#BD7000,stroke-width:1px
     valorCorrida(Vizualizar o valor da corrida)
+    aceitarCorrida{Aceitar corrida?}
     pontoPassageiro(Mostrar o caminho para pegar o passageiro)
     destinoPassageiro(Mostrar caminho do destino do passageiro)
     receberPagamento(Receber pagamento)
@@ -75,12 +76,13 @@ subgraph Ações_Motorista
         aceitarCorrida--sim-->pontoPassageiro
         pontoPassageiro-->destinoPassageiro
         destinoPassageiro-->receberPagamento
+        valorCorrida-->aceitarCorrida
+        aceitarCorrida--nao aceitou-->procurarMotorista
+        procurarMotorista-->aceitarCorrida
         receberPagamento-->fim
         
+        
 end
-        aceitarCorrida{Aceitar corrida?}
-        valorCorrida-->aceitarCorrida
-        procurarMotorista-->aceitarCorrida
 
 ```
 
